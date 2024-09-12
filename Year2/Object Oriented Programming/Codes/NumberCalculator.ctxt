@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=NumberCalculator
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=a\ n
+comment2.target=void\ add(int[],\ int)
+comment3.params=a\ n
+comment3.target=void\ subtract(int[],\ int)
+comment4.params=a\ n
+comment4.target=void\ multiply(int[],\ int)
+comment5.params=a\ n
+comment5.target=void\ divide(int[],\ int)
+comment6.params=a\ n
+comment6.target=void\ mod(int[],\ int)
+comment7.params=a\ n
+comment7.target=void\ per(int[],\ int)
+numComments=8

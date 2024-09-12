@@ -1,0 +1,8 @@
+string=str(input("Enter a string:"))
+print(string[3])
+length=len(string)
+maximum=max(string)
+minimum=min(string)
+print(length)
+print(maximum)
+print(minimum)

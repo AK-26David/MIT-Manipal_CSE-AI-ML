@@ -1,0 +1,71 @@
+Using the University DataBase implement the following queries:
+
+-----------------------------------------------------------------------------------------------------------
+Set Operations - 
+
+1. select course_id from section where semester='Fall' and year=2009
+union
+select course_id from section where semester='Spring' and year=2010;
+
+2. select course_id from section where semester='Fall' and year=2009
+intersection
+select course_id from section where semester='Spring' and year=2010;
+
+3. select course_id from section where semester='Fall' and year=2009
+minus
+select course_id from section where semester='Spring' and year=2010;
+
+4. select course_id from course where course_id not in(select course_id from takes);
+
+
+Set Membership - 
+
+5. select title from course where semester='Fall' and year=2009
+minus
+select title from course where semester='Spring' and year=2010;
+
+6. select count(id) from takes where course_id in(select course_id from teaches where id=1010100);
+
+7. select title from course where semester='Fall' and year=2009
+intersection
+select title from course where semester='Spring' and year=2010;
+
+8. select name from student where name in(select name from instructor);
+
+Set Comparision - 
+
+9. select name from instructor where salary>=some(select salary from instructor where dept_name=Biology);
+
+10. select name from instructor where salary>=all(select salary from instructor where dept_name=Biology);
+
+11. select dept_name from instructor where salary>all(select avg(salary) from instructor);
+
+12. select dept_name,budget from department where budget<all(select avg(salary) from instructor );
+
+
+Test for Empty Relations - 
+
+13. select title from course where exists (select course_id from section 
+where semester = 'Fall'  and year = 2009 and course.course_id = section.course_id)
+intersect
+select title from course where exists (select course_id from section 
+where semester = 'Spring' and year = 2010 and course.course_id = section.course_id);
+
+select id from takes where exists(select id from student where dept_name='Biology');
+
+Test for the absence of duplicates - 
+
+15. select title from course where course_id in(select course_id from takes where year=2009 group by course_id having count(course_id)<2);
+
+16. select name,dept_name from student s where 2<=(select count(id) from takes t where s.id=t.id and s.dept_name='Comp. Sci.' group by id);
+
+17. select dept_name, avg_sal from (select dept_name,avg(salary) avg_sal from instructor group by dept_name having avg(salary)>42000);
+
+Views - 
+
+18. create view all_courses as select building,room_number from section natural join course where dept_name='Physics' and semester='Fall' and year=2009;
+
+19. select * from courses;
+
+20. create view dept_tot_sal as select dept_name,sum(salary) tot_salary from instructor group by dept_name;
+select * from dept_tot_sal;

@@ -1,0 +1,15 @@
+create table employee(empnum number(10), emp_name varchar(25), emp_address varchar(50));
+insert into employee values(001,'Arnav','Manipal');
+insert into employee values(002,'Akshay','Delhi');
+insert into employee values(003,'Sai Aditya','Bengaluru');
+insert into employee values(004,'Anish','Nashik');
+insert into employee values(005,'Aarav','Mumbai');
+select * from employee;
+select * from employee where emp_address='Manipal';
+alter table employee add salary number(5);
+update employee set salary = 10000;
+select * from employee;
+describe employee;
+delete from employee where emp_address='Mangalore';
+rename employee to employees;
+drop table employees;
