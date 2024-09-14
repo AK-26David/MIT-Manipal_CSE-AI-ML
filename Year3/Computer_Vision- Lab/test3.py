@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import time
 
 def compute_gradients(gray):
     # Compute gradients using Sobel operator
@@ -39,32 +40,42 @@ cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
+# Define the interval (in seconds) for capturing frames
+interval = 1  # Capture frame every 1 second
+
+last_time = time.time()
+
 while True:
-    # Capture frame-by-frame
-    ret, frame = cap.read()
+    current_time = time.time()
     
-    if not ret:
-        print("Failed to grab frame")
-        break
+    if current_time - last_time > interval:
+        last_time = current_time
+        
+        # Capture a single frame
+        ret, frame = cap.read()
+        
+        if not ret:
+            print("Failed to grab frame")
+            break
 
-    # Convert the frame to grayscale
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        # Convert the frame to grayscale
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    # Convert the grayscale image to float64 for precision
-    gray = np.float64(gray)
+        # Convert the grayscale image to float64 for precision
+        gray = np.float64(gray)
 
-    # Compute gradients
-    sobel_x, sobel_y = compute_gradients(gray)
+        # Compute gradients
+        sobel_x, sobel_y = compute_gradients(gray)
 
-    # Compute Harris response
-    R = compute_harris_response(sobel_x, sobel_y)
+        # Compute Harris response
+        R = compute_harris_response(sobel_x, sobel_y)
 
-    # Threshold the corners
-    corners = (R > 0.01 * R.max())
-    frame[corners] = [0, 0, 255]  # Mark the corners in red
+        # Threshold the corners
+        corners = (R > 0.01 * R.max())
+        frame[corners] = [0, 0, 255]  # Mark the corners in red
 
-    # Display the frame with detected corners
-    cv2.imshow('Harris Corners', frame)
+        # Display the frame with detected corners
+        cv2.imshow('Harris Corners', frame)
 
     # Break the loop on 'ESC' key press
     if cv2.waitKey(1) & 0xFF == 27:
