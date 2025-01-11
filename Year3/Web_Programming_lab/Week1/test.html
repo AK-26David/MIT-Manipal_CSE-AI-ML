@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Test </title>
+    </head>
+    <body>
+        <form action="action_page.php" method="GET">
+            <div>
+            <label for ="fname"> first name:</label>
+            <!--Text Box-->
+            <input type="text" id="fname" placeholder="Spongebob" required>
+            </div>
+            <br>
+            <div>
+                <label for ="lname"> last name:</label>
+            <input type="text" id="lname" placeholder="Squarepants" required>
+            </div>
+            <br>
+            <div>
+                <label for ="pass"> password:</label>
+            <input type="text" id="pass" name="pass" maxlength="8" required>
+            </div>
+            <br>
+            <div>
+                <!--Calender-->
+                <label for ="bdate"> birthdate:</label>
+            <input type="date" id="bdate" name="bdate">
+            </div>
+            <br>
+            <div>
+                <label for = "title">title:</label>
+                <label for = "Mr.">Mr:</label>
+                <!--Radio Button-->
+                <input type="radio" id="Mr." name="title" value="Mr.">
+
+                <label for = "Ms.">Ms.:</label>
+                <input type="radio" id="Ms." name="title" value="Ms.">
+
+            </div>
+            <br>
+            <div>
+                <input type="reset">
+            </div>
+            <br>
+            <div>
+                <input type="submit">
+            </div>
+
+        </form>
+    </body>
+</html>
