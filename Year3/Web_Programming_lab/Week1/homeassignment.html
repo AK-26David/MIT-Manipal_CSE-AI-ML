@@ -1,43 +1,75 @@
-<html>
-    <head>
-        <title> Conference Registration Form </title>
-    </head>
-    <body>
-        <form action="action_page.php" method="GET">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Registration Form </title>
+</head>
+<body>
+    <form action="action_page.php" method="POST" enctype="multipart/form-data">
+        <h1>Conference Registration Form</h1>
+        <h2>By Arnav Sanjay Karnik - 220962021</h2>
+        <fieldset>
+            <legend>Participant Details</legend>
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="example@domain.com" required><br><br>
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit phone number" pattern="\d{10}" required><br><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" placeholder="Enter your age" min="18" max="60" required><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Event Preferences</legend>
+            <label for="events">Select Events:</label><br>
+            <select id="events" name="events[]" multiple required>
+                <option value="Coding Contest">Coding Contest</option>
+                <option value="Hackathon">Hackathon</option>
+                <option value="Paper Presentation">Paper Presentation</option>
+                <option value="Robotics Challenge">Robotics Challenge</option>
+                <option value="Keynote Session">Keynote Session</option>
+            </select><br>
+            <small>Hold Ctrl (Windows) or Command (Mac) to select multiple options.</small><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Accommodation Details</legend>
+            <label>Accommodation Type:</label><br>
+            <input type="radio" id="hostel" name="accommodation" value="Hostel" required>
+            <label for="hostel">Hostel</label><br>
+            <input type="radio" id="hotel" name="accommodation" value="Hotel" required>
+            <label for="hotel">Hotel</label><br>
+            <input type="radio" id="none" name="accommodation" value="None" required>
+            <label for="none">None</label><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Dietary Preferences</legend>
+            <label>Dietary Preferences:</label><br>
+            <input type="checkbox" id="diet_veg" name="diet[]" value="Vegetarian">
+            <label for="diet_veg">Vegetarian</label><br>
+            <input type="checkbox" id="diet_nonveg" name="diet[]" value="Non-Vegetarian">
+            <label for="diet_nonveg">Non-Vegetarian</label><br>
+            <input type="checkbox" id="diet_vegan" name="diet[]" value="Vegan">
+            <label for="diet_vegan">Vegan</label><br>
+            <input type="checkbox" id="diet_other" name="diet[]" value="Other">
+            <label for="diet_other">Other (Specify below):</label><br>
+            <input type="text" id="other_diet" name="other_diet" placeholder="Specify other dietary preference"><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Additional Information</legend>
+            <label for="document">Upload Student ID (PDF only, max 5 MB):</label><br>
+            <input type="file" id="document" name="document" accept="application/pdf" required><br><br>
 
-            <div>
-                <h1> Conference Registration Form</h1>
-            </div>
-            <br>
-
-            <div>
-                <h3> Section 1-Personal Details:</h3>
-            </div>
-            <br>
-
-            <div>
-                <label for ="name">Name:</label>
-                <input type="text" id="name" placeholder="Enter your full name" required>
-            </div>
-            <br>
-
-            <div>
-                <label for ="email_id">Email:</label>
-                <input type="text" id="email_id" placeholder="example@domain.com" required>
-            </div>
-            <br>
-
-            <div>
-                <label for ="phone">Phone Number:</label>
-                <input type="text" id="phone" placeholder="Required 10-digit input" required>
-            </div>
-            <br>
-
-            <div>
-                <label for ="age">Age:</label>
-                <input type="number" id="age" placeholder="Enter age" min="18" max="65" required>
-            </div>
- 
-        </form>
-    </body>
+            <label for="comments">Comments/Requests:</label><br>
+            <textarea id="comments" name="comments" placeholder="Enter any comments or requests (optional)" maxlength="300"></textarea><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Consent and Submission</legend>
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I agree to the terms and conditions.</label><br><br>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </fieldset>
+    </form>
+</body>
 </html>
