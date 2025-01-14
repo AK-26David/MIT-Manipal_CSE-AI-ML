@@ -2,7 +2,7 @@
 
 
 ### Year 1- Consists of Lab Codes of - 
-Problem Solving Using Computers Lab Codes.
+Problem Solving Using Computers 
 
 ### Year 2- Consists of Lab Codes of- 
 1.)Data Structures 
