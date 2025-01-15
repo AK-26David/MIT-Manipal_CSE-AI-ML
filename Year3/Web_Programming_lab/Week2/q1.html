@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('train.jpg'); /* Set train image as the background */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent background for the form */
+            padding: 30px;
+            border-radius: 10px;
+            width: 70%;
+            max-width: 1000px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"], input[type="number"], select {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .radio-label, .checkbox-label {
+            display: inline-block;
+            font-size: 18px;
+        }
+
+        .table-container {
+            margin-top: 20px;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        table td {
+            background-color: #f4f4f4;
+        }
+
+        /* Styling for seat numbers */
+        .seat-number {
+            color: black;  /* Ensures seat numbers are black */
+            font-weight: bold;
+        }
+
+        /* Styling for Availability (Yes/No) */
+        .availability {
+            color: black;  /* Ensures availability text is black */
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #0056b3;
+            color: white;
+            padding: 15px 20px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #003c75;
+        }
+
+        /* Style for train image */
+        .train-image {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            opacity: 0.3;
+            height: 300px;  /* Adjust height as per your preference */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Train Ticket Booking</h2>
+        <form>
+            <!-- Passenger Information -->
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="fromStation">From Station:</label>
+            <input type="text" id="fromStation" name="fromStation" required>
+
+            <label for="toStation">To Station:</label>
+            <input type="text" id="toStation" name="toStation" required>
+
+            <!-- Train Selection -->
+            <label>Class:</label>
+            <input type="radio" id="firstClass" name="trainClass" value="First Class" required>
+            <label for="firstClass" class="radio-label">First Class</label>
+            <input type="radio" id="secondClass" name="trainClass" value="Second Class">
+            <label for="secondClass" class="radio-label">Second Class</label>
+
+            <label for="dateOfJourney">Date of Journey:</label>
+            <input type="text" id="dateOfJourney" name="dateOfJourney" required placeholder="DD/MM/YYYY">
+
+            <!-- Additional Services -->
+            <label>Extra Services:</label>
+            <input type="checkbox" id="meal" name="extraServices" value="Meal">
+            <label for="meal" class="checkbox-label">Meal</label>
+            <input type="checkbox" id="wifi" name="extraServices" value="Wi-Fi">
+            <label for="wifi" class="checkbox-label">Wi-Fi</label>
+            <input type="checkbox" id="ac" name="extraServices" value="AC">
+            <label for="ac" class="checkbox-label">AC</label>
+
+            <!-- Seat Preferences Table -->
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Seat Number</th>
+                        <th>Available</th>
+                        <th>Select</th>
+                    </tr>
+                    <tr>
+                        <td class="seat-number">1A</td>
+                        <td class="availability">Yes</td>
+                        <td><input type="checkbox" name="seat" value="1A"></td>
+                    </tr>
+                    <tr>
+                        <td class="seat-number">1B</td>
+                        <td class="availability">Yes</td>
+                        <td><input type="checkbox" name="seat" value="1B"></td>
+                    </tr>
+                    <tr>
+                        <td class="seat-number">2A</td>
+                        <td class="availability">No</td>
+                        <td><input type="checkbox" name="seat" value="2A" disabled></td>
+                    </tr>
+                    <tr>
+                        <td class="seat-number">2B</td>
+                        <td class="availability">Yes</td>
+                        <td><input type="checkbox" name="seat" value="2B"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <button type="submit" class="btn">Book Ticket</button>
+        </form>
+    </div>
+
+</body>
+</html>

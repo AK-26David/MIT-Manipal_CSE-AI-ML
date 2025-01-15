@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Class Timetable</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #007bff; /* Blue background */
+            color: black; /* Text color for the whole page */
+        }
+
+        h2, p {
+            color: black; /* Set text color to black for the headings and paragraphs */
+        }
+
+        .carousel-item {
+            text-align: center;
+        }
+
+        /* Table styles */
+        .table th, .table td {
+            text-align: center;
+            color: black; /* Set table text color to black */
+        }
+
+        .table {
+            background-color: #ffffff; /* White background for tables */
+        }
+
+        .carousel-inner {
+            background-color: #ffffff; /* White background for the carousel inner items */
+            border-radius: 10px; /* Optional: adds rounded corners to carousel items */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Manipal Institute of Technology</h2>
+        <p class="text-center">Department of Computer Science</p>
+        
+        <!-- Bootstrap Carousel with Auto-Slide Timer -->
+        <div id="dayCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <div class="carousel-inner">
+                <!-- Monday -->
+                <div class="carousel-item active">
+                    <h3>Monday</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Subject</th>
+                                <th>Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:00 AM - 9:00 AM</td>
+                                <td>Deep Learning</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 AM - 10:00 AM</td>
+                                <td>PE-1</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 AM - 11:30 AM</td>
+                                <td>Engineering Economics and Financial Management</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>11:30 AM - 12:30 PM</td>
+                                <td>PE 2</td>
+                                <td>Room 104</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Tuesday -->
+                <div class="carousel-item">
+                    <h3>Tuesday</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Subject</th>
+                                <th>Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:00 AM - 9:00 AM</td>
+                                <td>OE</td>
+                                <td>Room 105</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 AM - 10:00 AM</td>
+                                <td>PE1</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 AM - 11:30 AM</td>
+                                <td>PE2</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>11:30 AM - 12:30 PM</td>
+                                <td>Deep Learning</td>
+                                <td>Room 507</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Wednesday -->
+                <div class="carousel-item">
+                    <h3>Wednesday</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Subject</th>
+                                <th>Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:00 AM - 9:00 AM</td>
+                                <td>Engineering Economics and Financial Management</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 AM - 10:00 AM</td>
+                                <td>Parallel Computing Architecture and Programming</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 AM - 11:30 AM</td>
+                                <td>PE1</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>11:30 AM - 12:30 PM</td>
+                                <td>OE</td>
+                                <td>Room 112</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Thursday -->
+                <div class="carousel-item">
+                    <h3>Thursday</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Subject</th>
+                                <th>Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:00 AM - 9:00 AM</td>
+                                <td>Deep Learning</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 AM - 10:00 AM</td>
+                                <td>Parallel Computing Architecture and Programming</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 AM - 11:30 AM</td>
+                                <td>Engineering Economics and Financial Management</td>
+                                <td>Room 507</td>
+                            </tr>
+                            <tr>
+                                <td>11:30 AM - 12:30 PM</td>
+                                <td>OE</td>
+                                <td>Room 116</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Friday -->
+                <div class="carousel-item">
+                    <h3>Friday</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Subject</th>
+                                <th>Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8:00 AM - 9:00 AM</td>
+                                <td>PE1</td>
+                                <td>Room 117</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 AM - 10:00 AM</td>
+                                <td>PE2</td>
+                                <td>Room 118</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 AM - 11:30 AM</td>
+                                <td>OE</td>
+                                <td>Room 119</td>
+                            </tr>
+                            <tr>
+                                <td>11:30 AM - 12:30 PM</td>
+                                <td>Placement</td>
+                                <td>Room 120</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Carousel Controls -->
+            <a class="carousel-control-prev" href="#dayCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#dayCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

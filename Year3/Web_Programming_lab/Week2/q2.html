@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Magazine Cover Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .cover {
+            background: url('space.jpg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .headline {
+            font-size: 4em;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin: 0;
+        }
+
+        .subheadline {
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-magazine {
+            background-color: #f39c12;
+            color: white;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            margin-top: 30px;
+            border-radius: 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-top: 50px;
+        }
+
+        .row {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .magazine-button {
+            width: 100%;
+            margin: 10px 0;
+            font-size: 1.1em;
+            padding: 15px;
+        }
+
+        .magazine-content {
+            margin-top: 30px;
+        }
+
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th, .table td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cover">
+        <h1 class="headline">Tech Innovations</h1>
+        <p class="subheadline">Explore the Future of Technology and Web Development</p>
+        <button type="button" class="btn btn-magazine">Read More</button>
+    </div>
+
+    <div class="container magazine-content">
+        <!-- Section: Featured Articles -->
+        <div class="row">
+            <div class="col-md-4 content-box">
+                <h2 class="section-title">Featured Articles</h2>
+                <ul>
+                    <li><strong>Web Design Trends 2025</strong></li>
+                    <li><strong>Top Tech Gadgets for Developers</strong></li>
+                    <li><strong>Building the Future of the Web</strong></li>
+                </ul>
+                <button type="button" class="btn btn-primary magazine-button">Explore Articles</button>
+            </div>
+
+            <div class="col-md-4 content-box">
+                <h2 class="section-title">Technology News</h2>
+                <ul>
+                    <li><strong>AI: A Revolution in Tech</strong></li>
+                    <li><strong>Blockchain Technology Explained</strong></li>
+                    <li><strong>5G Networks: The Future of Connectivity</strong></li>
+                </ul>
+                <button type="button" class="btn btn-success magazine-button">Read News</button>
+            </div>
+
+            <div class="col-md-4 content-box">
+                <h2 class="section-title">Tutorials & Courses</h2>
+                <ul>
+                    <li><strong>Mastering HTML & CSS</strong></li>
+                    <li><strong>JavaScript for Beginners</strong></li>
+                    <li><strong>React Development Bootcamp</strong></li>
+                </ul>
+                <button type="button" class="btn btn-warning magazine-button">View Tutorials</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
