@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f0f8ff; /* Light blue background */
+            position: relative;
+        }
+        .quiz-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: 0 auto;
+            border: 2px solid #4CAF50; /* Green border for the quiz box */
+        }
+        h2 {
+            text-align: center;
+            color: #4CAF50; /* Green color for the title */
+        }
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #333333; /* Dark gray text color */
+        }
+        .options {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .options input {
+            margin-right: 10px;
+            accent-color: #4CAF50; /* Green color for radio button selection */
+        }
+        .submit-btn {
+            padding: 12px 25px;
+            background-color: #007BFF; /* Blue background for submit button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .result {
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            color: #ff5733; /* Red color for result */
+        }
+        .result.correct {
+            color: #4CAF50; /* Green for correct results */
+        }
+        .result.incorrect {
+            color: #e74c3c; /* Red for incorrect results */
+        }
+        
+        /* Sidebar with name */
+        #author {
+            position: fixed;
+            top: 50%;
+            left: -100px;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            z-index: 1000;
+            white-space: nowrap;
+            background-color: #f0f8ff; /* Ensure it's visible on the background */
+        }
+
+        /* Copyright footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div id="author">
+    Arnav Karnik
+</div>
+
+<div class="quiz-container">
+    <h2>Deep Learning Quiz</h2>
+    <form id="quizForm">
+        <div class="question">
+            <label for="q1">1. What is the main purpose of an activation function in a neural network?</label>
+            <div class="options">
+                <input type="radio" id="q1a" name="q1" value="a"> A. To introduce non-linearity<br>
+                <input type="radio" id="q1b" name="q1" value="b"> B. To reduce overfitting<br>
+                <input type="radio" id="q1c" name="q1" value="c"> C. To initialize weights<br>
+                <input type="radio" id="q1d" name="q1" value="d"> D. To optimize the cost function<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q2">2. Which of the following is a common activation function used in deep learning?</label>
+            <div class="options">
+                <input type="radio" id="q2a" name="q2" value="a"> A. ReLU<br>
+                <input type="radio" id="q2b" name="q2" value="b"> B. Gradient Descent<br>
+                <input type="radio" id="q2c" name="q2" value="c"> C. Sigmoid<br>
+                <input type="radio" id="q2d" name="q2" value="d"> D. All of the above<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q3">3. What is the purpose of backpropagation in neural networks?</label>
+            <div class="options">
+                <input type="radio" id="q3a" name="q3" value="a"> A. To minimize the weights<br>
+                <input type="radio" id="q3b" name="q3" value="b"> B. To optimize the activation function<br>
+                <input type="radio" id="q3c" name="q3" value="c"> C. To update the weights based on the error<br>
+                <input type="radio" id="q3d" name="q3" value="d"> D. To initialize the neural network<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q4">4. Which of these is NOT a type of neural network architecture?</label>
+            <div class="options">
+                <input type="radio" id="q4a" name="q4" value="a"> A. Convolutional Neural Networks (CNNs)<br>
+                <input type="radio" id="q4b" name="q4" value="b"> B. Recurrent Neural Networks (RNNs)<br>
+                <input type="radio" id="q4c" name="q4" value="c"> C. Radial Basis Function (RBF)<br>
+                <input type="radio" id="q4d" name="q4" value="d"> D. Decision Tree Networks (DTNs)<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q5">5. What is a common use case for Recurrent Neural Networks (RNNs)?</label>
+            <div class="options">
+                <input type="radio" id="q5a" name="q5" value="a"> A. Image classification<br>
+                <input type="radio" id="q5b" name="q5" value="b"> B. Time series prediction<br>
+                <input type="radio" id="q5c" name="q5" value="c"> C. Dimensionality reduction<br>
+                <input type="radio" id="q5d" name="q5" value="d"> D. Natural language processing<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q6">6. What is the primary function of the softmax activation function?</label>
+            <div class="options">
+                <input type="radio" id="q6a" name="q6" value="a"> A. To convert the output into probabilities<br>
+                <input type="radio" id="q6b" name="q6" value="b"> B. To normalize the inputs<br>
+                <input type="radio" id="q6c" name="q6" value="c"> C. To calculate gradients for backpropagation<br>
+                <input type="radio" id="q6d" name="q6" value="d"> D. To remove bias from the predictions<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="q7">7. What is the main advantage of using a GPU for deep learning?</label>
+            <div class="options">
+                <input type="radio" id="q7a" name="q7" value="a"> A. Increased computational speed<br>
+                <input type="radio" id="q7b" name="q7" value="b"> B. Decreased memory usage<br>
+                <input type="radio" id="q7c" name="q7" value="c"> C. Lower cost<br>
+                <input type="radio" id="q7d" name="q7" value="d"> D. All of the above<br>
+            </div>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="submitQuiz()">Submit</button>
+    </form>
+
+    <div id="result" class="result" style="display: none;"></div>
+</div>
+
+<!-- Footer with copyright -->
+<div class="footer">
+    &copy; 2025 Arnav Karnik. All rights reserved.
+</div>
+
+<script>
+    function submitQuiz() {
+        const correctAnswers = {
+            q1: 'a', // To introduce non-linearity
+            q2: 'd', // All of the above
+            q3: 'c', // To update the weights based on the error
+            q4: 'd', // Decision Tree Networks (DTNs) is NOT a neural network architecture
+            q5: 'b', // Time series prediction
+            q6: 'a', // To convert the output into probabilities
+            q7: 'a'  // Increased computational speed
+        };
+
+        let score = 0;
+        const formElements = document.getElementById("quizForm").elements;
+
+        // Check the selected answers
+        for (let question in correctAnswers) {
+            const selectedOption = formElements[question].value;
+            if (selectedOption === correctAnswers[question]) {
+                score++;
+            }
+        }
+
+        // Show the result
+        const resultDiv = document.getElementById("result");
+        resultDiv.style.display = "block";
+
+        // Determine result color and message
+        if (score === 7) {
+            resultDiv.classList.add("correct");
+            resultDiv.classList.remove("incorrect");
+            resultDiv.textContent = `Congratulations! You scored ${score} out of 7. Excellent work!`;
+        } else {
+            resultDiv.classList.add("incorrect");
+            resultDiv.classList.remove("correct");
+            resultDiv.textContent = `You scored ${score} out of 7. Try again to improve your knowledge.`;
+        }
+
+        // Disable the submit button after submission
+        document.querySelector(".submit-btn").disabled = true;
+    }
+</script>
+
+</body>
+</html>

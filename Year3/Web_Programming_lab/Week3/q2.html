@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Greeting and Clock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            text-align: center;
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+            max-width: 600px;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Dynamic clock styling */
+        .clock {
+            font-size: 3.5em;
+            font-weight: 600;
+            padding: 20px 40px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+            color: #ffeb3b;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+            animation: bounce 1.5s ease-in-out infinite;
+            transition: transform 0.3s ease;
+            margin-bottom: 20px; /* Space between clock and greeting */
+        }
+
+        .clock:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(0, 255, 255, 1);
+        }
+
+        /* Stylish greeting */
+        .greeting {
+            font-size: 2.5em;
+            font-weight: 600;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2s ease-in-out;
+            color: #fff;
+        }
+
+        /* Footer styling */
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 1.2em;
+            color: white;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .greeting {
+                font-size: 2em;
+            }
+            .clock {
+                font-size: 2.5em;
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Main container with clock and greeting -->
+<div class="container">
+    <div class="clock" id="clock"></div>
+    <div class="greeting" id="greeting"></div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    &copy; 2025 Arnav Karnik. All rights reserved.
+</div>
+
+<script>
+    // Function to display the greeting message
+    function wishUser() {
+        const currentHour = new Date().getHours();
+        let greetingMessage = '';
+
+        if (currentHour >= 0 && currentHour < 12) {
+            greetingMessage = 'Good Morning!';
+        } else if (currentHour >= 12 && currentHour < 17) {
+            greetingMessage = 'Good Afternoon!';
+        } else if (currentHour >= 17 && currentHour < 21) {
+            greetingMessage = 'Good Evening!';
+        } else {
+            greetingMessage = 'Good Night!';
+        }
+
+        // Display the greeting in the greeting div
+        document.getElementById('greeting').innerText = greetingMessage;
+
+        // Show a dialog box with the greeting message
+        alert(greetingMessage);
+    }
+
+    // Function to update the clock dynamically
+    function updateClock() {
+        const currentTime = new Date();
+        const hours = currentTime.getHours().toString().padStart(2, '0');
+        const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+        const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        document.getElementById('clock').innerText = timeString;
+    }
+
+    // Call wishUser function to greet the user based on the time
+    wishUser();
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+
+    // Initialize the clock when the page loads
+    updateClock();
+</script>
+
+</body>
+</html>
