@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Size Animation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #text {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="text">FONT+++</h1>
+
+  <script>
+    const textElement = document.getElementById('text');
+    let fontSize = 5; // Initial font size
+    let increasing = true; // Flag to track the direction of font size change
+
+    function animateFont() {
+      if (increasing) {
+        fontSize += 2; // Increase font size
+        textElement.style.color = "red"; // Red color for increasing phase
+        textElement.textContent = "FONT+++";
+      } else {
+        fontSize -= 2; // Decrease font size
+        textElement.style.color = "blue"; // Blue color for decreasing phase
+        textElement.textContent = "FONT---";
+      }
+
+      textElement.style.fontSize = fontSize + "pt"; // Apply font size
+
+      // Check for font size limits
+      if (fontSize >= 40) {
+        increasing = false; // Start decreasing
+      } else if (fontSize <= 5) {
+        increasing = true; // Start increasing again
+      }
+    }
+
+    // Start animation at 200ms intervals
+    setInterval(animateFont, 200);
+  </script>
+</body>
+</html>

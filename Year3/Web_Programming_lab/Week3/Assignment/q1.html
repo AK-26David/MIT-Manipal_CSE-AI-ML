@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio Button Color Change</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .color-box {
+      width: 300px;
+      height: 200px;
+      margin: 20px auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Change Color</h1>
+
+  <div>
+    <label>
+      <input type="radio" name="color" value="red" onclick="changeColor('red')"> Red
+    </label>
+    <label>
+      <input type="radio" name="color" value="green" onclick="changeColor('green')"> Green
+    </label>
+    <label>
+      <input type="radio" name="color" value="blue" onclick="changeColor('blue')"> Blue
+    </label>
+  </div>
+
+  <div class="color-box" id="colorBox">
+    Select a color
+  </div>
+
+  <script>
+    function changeColor(color) {
+      const colorBox = document.getElementById('colorBox');
+      colorBox.style.backgroundColor = color;
+      colorBox.textContent = color.charAt(0).toUpperCase() + color.slice(1);
+    }
+  </script>
+</body>
+</html>
