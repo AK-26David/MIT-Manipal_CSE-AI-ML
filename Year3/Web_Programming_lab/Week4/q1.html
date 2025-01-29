@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table and Image Animation</title>
+    <style>
+        /* Body background and general layout */
+        body {
+            background: #f4f7fb;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 70%;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 2s ease-in-out; /* Adding transition for smooth movement */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f7f7; /* Lighter color for alternate rows */
+        }
+
+        tr:hover {
+            background-color: #e0e0e0; /* Hover effect on rows */
+            cursor: pointer;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #6C63FF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 30px;
+        }
+
+        button:hover {
+            background-color: #5750e1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Table -->
+        <table id="myTable">
+            <tr>
+                <td>Row 1, Col 1</td>
+                <td>Row 1, Col 2</td>
+                <td>Row 1, Col 3</td>
+            </tr>
+            <tr>
+                <td>Row 2, Col 1</td>
+                <td>Row 2, Col 2</td>
+                <td>Row 2, Col 3</td>
+            </tr>
+            <tr>
+                <td>Row 3, Col 1</td>
+                <td>Row 3, Col 2</td>
+                <td>Row 3, Col 3</td>
+            </tr>
+        </table>
+
+        <!-- Image -->
+        <img src="b6491b67-city-9023-1683a98d99f.jpg" alt="Placeholder Image" id="myImage">
+
+        <!-- Button to trigger animation -->
+        <button id="moveButton">Move Right to Left</button>
+    </div>
+
+    <!-- jQuery library inclusion -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#moveButton').click(function(){
+                // Animate the container to move from right to left using translateX
+                $('.container').css('transform', 'translateX(-100%)'); // Shifting container to the left
+            });
+        });
+    </script>
+
+</body>
+</html>

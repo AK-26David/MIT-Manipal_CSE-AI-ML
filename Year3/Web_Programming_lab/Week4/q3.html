@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card Editor</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .controls {
+            width: 250px;
+            padding: 15px;
+            background: #f8f8f8;
+            border: 2px solid #ccc;
+        }
+        .card {
+            width: 300px;
+            height: 400px;
+            padding: 20px;
+            text-align: center;
+            border-width: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: yellow;
+            border-style: double;
+            font-family: Verdana;
+            font-size: 25px;
+        }
+        img {
+            width: 250px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <label>Choose a background color:</label>
+            <select id="bgColor">
+                <option value="yellow">Yellow</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+            </select>
+            <br><br>
+            
+            <label>Choose a font:</label>
+            <select id="fontStyle">
+                <option value="Verdana">Verdana</option>
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+            </select>
+            <br><br>
+            
+            <label>Specify a numeric font size:</label>
+            <input type="number" id="fontSize" value="25" min="10">
+            <br><br>
+            
+            <label>Choose a border style:</label>
+            <br>
+            <input type="radio" name="borderStyle" value="none"> None
+            <input type="radio" name="borderStyle" value="double" checked> Double
+            <input type="radio" name="borderStyle" value="solid"> Solid
+            <br><br>
+            
+            <input type="checkbox" id="addPicture" checked> Add the Default Picture
+            <br><br>
+            
+            <label>Enter the greeting text below:</label>
+            <textarea id="greetingText">Happy Birthday, and many more</textarea>
+            <br><br>
+            
+            <label>Upload an Image:</label>
+            <input type="file" id="imageUpload" accept="image/*">
+            <br><br>
+            
+            <button id="updateBtn">Update</button>
+        </div>
+        
+        <div class="card" id="cardPreview">
+            <p id="text">Happy Birthday, and many more</p>
+            <img id="cakeImage" src="happy-birthday-card-field-mice-(2)-11392-p.jpg" alt="Birthday Cake" style="display:block;">
+            <img id="uploadedImage" style="display:none; max-width: 100%; height: auto;">
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            $("#updateBtn").click(function() {
+                let bgColor = $("#bgColor").val();
+                let font = $("#fontStyle").val();
+                let fontSize = $("#fontSize").val() + "px";
+                let borderStyle = $("input[name='borderStyle']:checked").val();
+                let greetingText = $("#greetingText").val();
+                
+                $("#cardPreview").css({
+                    "background-color": bgColor,
+                    "font-family": font,
+                    "font-size": fontSize,
+                    "border-style": borderStyle
+                });
+                
+                $("#text").text(greetingText);
+                
+                if($("#addPicture").is(":checked")) {
+                    $("#cakeImage").show();
+                } else {
+                    $("#cakeImage").hide();
+                }
+            });
+
+            $("#imageUpload").change(function(event) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#uploadedImage").attr("src", e.target.result).show();
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            });
+        });
+    </script>
+</body>
+</html>
