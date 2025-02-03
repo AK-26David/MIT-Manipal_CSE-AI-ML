@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Image Text Overlay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .image-container:hover {
+            transform: scale(1.02);
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .sliding-text {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        .image-container:hover .sliding-text {
+            bottom: 0;
+            opacity: 1;
+        }
+        .sliding-text h3 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+        }
+        .sliding-text p {
+            margin: 0;
+            font-size: 1em;
+            opacity: 0.8;
+        }
+        .learn-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid white;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+        .learn-more:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="img.jpg" alt="Landscape Adventure">
+        <div class="sliding-text">
+            <h3>Explore Breathtaking Landscapes</h3>
+            <p>Discover hidden wonders and extraordinary destinations around the globe.</p>
+            <a href="#" class="learn-more">Learn More</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.learn-more').on('click', function(e) {
+                e.preventDefault();
+                alert('Discover more about our amazing travel experiences!');
+            });
+
+            $('.image-container').on('mouseenter', function() {
+                $(this).find('.sliding-text').css({
+                    bottom: '0',
+                    opacity: 1
+                });
+            }).on('mouseleave', function() {
+                $(this).find('.sliding-text').css({
+                    bottom: '-100px',
+                    opacity: 0
+                });
+            });
+        });
+    </script>
+</body>
+</html>
