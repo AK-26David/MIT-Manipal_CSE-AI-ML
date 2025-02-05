@@ -3,53 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Counter</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Quiz</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-        }
-        .counter-box {
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .counter-value {
-            font-size: 2rem;
-            font-weight: bold;
-        }
+        .quiz-container {
+             max-width: 600px; margin: 50px auto; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); background: #fff; }
+        .feedback { margin-top: 20px; padding: 10px; border-radius: 5px; display: none; }
+        .correct { background: #d4edda; color: #155724; }
+        .incorrect { background: #f8d7da; color: #721c24; }
+        .btn-submit { width: 100%; }
     </style>
 </head>
-<body>
-
-    <div class="counter-box">
-        <h2>Interactive Counter</h2>
-        <p class="counter-value" id="counter">0</p>
-        <button class="btn btn-success me-2" onclick="increment()">+</button>
-        <button class="btn btn-danger" onclick="decrement()">-</button>
+<body class="bg-light">
+    <div class="quiz-container">
+        <form id="quizForm">
+            <div class="mb-3">
+                <label class="form-label">1. What is my name?</label>
+                <input type="text" class="form-control" id="nameInput" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">2. What is the capital of France?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="capital" value="paris" required>
+                    <label class="form-check-label">Paris</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="capital" value="london">
+                    <label class="form-check-label">London</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">3. Which are primary colors? (Select all)</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="colors" value="red">
+                    <label class="form-check-label">Red</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="colors" value="blue">
+                    <label class="form-check-label">Blue</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="colors" value="yellow">
+                    <label class="form-check-label">Yellow</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+        </form>
+        <div id="feedback" class="feedback"></div>
     </div>
-
     <script>
-        let count = 0;
-
-        function increment() {
-            count++;
-            document.getElementById("counter").textContent = count;
-        }
-
-        function decrement() {
-            count--;
-            document.getElementById("counter").textContent = count;
-        }
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let score = 0;
+            if (document.getElementById('nameInput').value.trim().toLowerCase() === 'john') score++;
+            if (document.querySelector('input[name="capital"]:checked')?.value === 'paris') score++;
+            let selected = Array.from(document.querySelectorAll('input[name="colors"]:checked')).map(el => el.value);
+            if (JSON.stringify(selected.sort()) === JSON.stringify(['red', 'blue', 'yellow'])) score++;
+            let feedback = document.getElementById('feedback');
+            feedback.textContent = `Your score: ${score}/3`;
+            feedback.className = `feedback ${score === 3 ? 'correct' : 'incorrect'}`;
+            feedback.style.display = 'block';
+        });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
