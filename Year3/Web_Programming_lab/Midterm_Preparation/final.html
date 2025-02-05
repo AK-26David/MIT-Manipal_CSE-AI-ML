@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Concepts</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+        .my-box {
+            background-color: lightblue;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Heading -->
+        <h1 class="text-center mt-4">Hello Web Development!</h1>
+
+        <!-- Simple Box -->
+        <div class="my-box">
+            <h2>Click Counter</h2>
+            <p>Count: <span id="counter">0</span></p>
+            <button class="btn btn-primary" id="countButton">Click Me!</button>
+        </div>
+
+        <!-- Simple Form -->
+        <div class="my-box">
+            <h2>Simple Form</h2>
+            <form id="simpleForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name:</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Counter functionality
+        let count = 0;
+        const countButton = document.getElementById('countButton');
+        const counterDisplay = document.getElementById('counter');
+
+        countButton.addEventListener('click', function() {
+            count++;
+            counterDisplay.textContent = count;
+            if(count >= 5) {
+                counterDisplay.classList.add('highlight');
+            }
+        });
+
+        // Form handling
+        const form = document.getElementById('simpleForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            alert('Hello, ' + name + '!');
+        });
+    </script>
+</body>
+</html>
