@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Concepts Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .counter {
+            font-size: 2em;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Concepts Demo</h1>
+    <p class="counter">0</p>
+    <button id="increment">Increment</button>
+    <button id="decrement">Decrement</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        // Variables
+        let count = 0; 
+        const counterElement = document.querySelector('.counter');
+
+        // Functions
+        function updateCounter() {
+            counterElement.textContent = count;
+        }
+
+        // Event Listeners
+        document.getElementById('increment').addEventListener('click', function() {
+            count++;
+            updateCounter();
+        });
+
+        document.getElementById('decrement').addEventListener('click', function() {
+            if (count > 0) count--;
+            updateCounter();
+        });
+
+        document.getElementById('reset').addEventListener('click', function() {
+            count = 0;
+            updateCounter();
+        });
+    </script>
+</body>
+</html>
