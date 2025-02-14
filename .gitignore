@@ -1,3 +1,6 @@
 .venv 
 .vscode
 djangoproject
+mnist_model.pth
+FashionMNIST
+cats_and_dogs_filtered
