@@ -1,0 +1,7 @@
+<h2>Insert into WORKS Table</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Insert">
+</form>
+<a href="{% url 'index' %}">Back to Home</a>

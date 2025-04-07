@@ -1,0 +1,19 @@
+<h2>Retrieve Employees by Company</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Search">
+</form>
+
+{% if employees %}
+    <h3>Results:</h3>
+    <ul>
+        {% for name, city in employees %}
+            <li>{{ name }} - {{ city }}</li>
+        {% endfor %}
+    </ul>
+{% elif employees is not None %}
+    <p>No employees found.</p>
+{% endif %}
+
+<a href="{% url 'index' %}">Back to Home</a>
