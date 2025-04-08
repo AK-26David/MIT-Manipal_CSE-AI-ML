@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Works and Lives</title>
+</head>
+<body>
+    <h2>Insert into WORKS</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ insert_form.as_p }}
+        <button type="submit" name="insert">Insert</button>
+    </form>
+
+    <h2>Find People Working at a Company</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ search_form.as_p }}
+        <button type="submit" name="search">Search</button>
+    </form>
+
+    {% if results %}
+        <h3>Results:</h3>
+        <ul>
+        {% for r in results %}
+            <li>{{ r.name }} - {{ r.city }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
