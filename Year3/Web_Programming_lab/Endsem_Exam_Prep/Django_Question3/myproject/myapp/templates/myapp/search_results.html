@@ -1,0 +1,11 @@
+<h2>Results</h2>
+{% if data %}
+    <ul>
+        {% for name, city in data %}
+            <li>{{ name }} lives in {{ city }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+<a href="{% url 'home' %}">Back to Home</a>
