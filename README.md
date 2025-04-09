@@ -1,20 +1,34 @@
-# MIT-Manipal_CSE-AI&ML-
+# MIT Manipal - CSE (AI & ML) Lab Codes
 
+This repository contains lab codes organized by academic year for the B.Tech. Computer Science and Engineering (Artificial Intelligence & Machine Learning) program at MIT Manipal.
 
-### Year 1- Consists of Lab Codes of - 
-Problem Solving Using Computers 
+---
 
-### Year 2- Consists of Lab Codes of- 
-1.) Data Structures <br>
-2.) Object Oriented Programming <br>
-3.) DataBase System <br>
-4.) Design and Analysis using Algorithims  <br>
-5.) Artificial Intelligence <br>
+## 📘 Year 1
 
-### Year 3 - Consists of Lab Codes of - 
-1.) Machine Learning <br>
-2.) Computer Vision <br>
-3.) Big Data Analytics <br>
-4.) Deep Learning <br>
-5.) Web Programming  <br>
-6.) Parallel Computer Architecture and Programming  <br>
+- **Problem Solving Using Computers**
+
+---
+
+## 📗 Year 2
+
+- **Data Structures**
+- **Object Oriented Programming**
+- **Database Systems**
+- **Design and Analysis of Algorithms**
+- **Artificial Intelligence**
+
+---
+
+## 📙 Year 3
+
+- **Machine Learning**
+- **Computer Vision**
+- **Big Data Analytics**
+- **Deep Learning**
+- **Web Programming**
+- **Parallel Computer Architecture and Programming**
+
+---
+
+> 💡 Each folder contains the respective lab assignments, code implementations, and relevant documentation.
