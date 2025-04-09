@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Library</title>
+    </head>
+    <body>
+        <h1> Add a new book</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Add Book</button>
+        </form>
+        <h2>Available Books</h2>
+        <ul>
+            {% for book in books %}
+             <li>
+                <strong>{{ book.title }}</strong> by {{ book.author }} ({{ book.published_date }}) - {{ book.genre }}
+            </li>
+            {% empty %}
+            <li>No books available</li>
+            {% endfor %}
+        </ul>   
+        
+     </body>
+</html>
